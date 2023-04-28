@@ -1,8 +1,10 @@
 package com.atguigu.mpdemo1010.entity;
 
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.*;
 import lombok.Data;
+
+import java.lang.reflect.Field;
+import java.util.Date;
 
 /**
  * @Author liming
@@ -16,4 +18,18 @@ public class User {
     private String name;
     private Integer age;
     private String email;
+    //create_time
+    @TableField(fill = FieldFill.INSERT)
+    private Date createTime;
+
+    //update_time
+    @TableField(fill = FieldFill.INSERT_UPDATE)
+    private Date updateTime;
+
+    @Version
+    @TableField(fill = FieldFill.INSERT)
+    private Integer version;   //版本号
+
+    @TableLogic
+    private Integer deleted;
 }
