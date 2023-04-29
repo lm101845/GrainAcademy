@@ -2,6 +2,7 @@ package com.atguigu.mpdemo1010;
 
 import com.atguigu.mpdemo1010.entity.User;
 import com.atguigu.mpdemo1010.mapper.UserMapper;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.sun.scenario.effect.impl.sw.sse.SSEBlend_SRC_OUTPeer;
@@ -113,5 +114,37 @@ class Mpdemo1010ApplicationTests {
     public void testDeleteBatchIds() {
         int result = userMapper.deleteBatchIds(Arrays.asList(3,4));
         System.out.println(result);
+    }
+
+    //mp实现复杂查询操作
+    @Test
+    public void testSelectQuery() {
+        //创建对象
+        QueryWrapper<User> wrapper = new QueryWrapper<>();
+        //通过QueryWrapper设置条件
+        //查询age >= 30记录
+        //第一个参数字段名称，第二个参数设置值
+        //wrapper.ge("age",30);
+        //ge、gt、le、lt
+        //eq、ne
+        //wrapper.eq("name","李明");
+        //wrapper.ne("name","李明");
+
+        //between
+        //wrapper.between("age",18,35);
+
+        //like
+        //wrapper.like("name","岳");
+
+        //orderByDesc
+        //wrapper.orderByDesc("id");
+
+        //last
+        //wrapper.last("limit 1");
+
+        //查询要指定的列
+        wrapper.select("id","name");
+        List<User> users = userMapper.selectList(wrapper);
+        System.out.println(users);
     }
 }
