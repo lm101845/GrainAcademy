@@ -15,7 +15,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
  * @Author liming
  * @Date 2023/4/30 13:37
  **/
-
+//http://localhost:8001/swagger-ui.html#/edu45teacher45controller
 @Configuration     //配置类
 @EnableSwagger2   //swagger注解
 public class SwaggerConfig {
