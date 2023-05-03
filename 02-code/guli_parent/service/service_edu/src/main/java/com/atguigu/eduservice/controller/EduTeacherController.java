@@ -7,6 +7,7 @@ import com.atguigu.eduservice.entity.vo.TeacherQuery;
 import com.atguigu.eduservice.service.EduTeacherService;
 
 
+import com.atguigu.servicebase.exceptionhandler.GuliException;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import io.swagger.annotations.Api;
@@ -67,6 +68,12 @@ public class EduTeacherController {
     public R pageListTeacher(@PathVariable long current,@PathVariable long limit){
         //创建page对象
         Page<EduTeacher> pageTeacher = new Page<>(current,limit);
+        //int i = 10 / 0;    //测试统一异常处理
+        try {
+            int a = 10/0;
+        }catch(Exception e) {
+            throw new GuliException(20001,"出现自定义异常");
+        }
         //调用方法实现分页
         teacherService.page(pageTeacher,null);
         long total = pageTeacher.getTotal();   //总记录数
@@ -121,6 +128,35 @@ public class EduTeacherController {
         long total = pageTeacher.getTotal();   //总记录数
         List<EduTeacher> records = pageTeacher.getRecords();  //数据list集合
         return R.ok().data("total",total).data("rows",records);
+    }
+
+    //5.添加讲师接口的方法
+    @PostMapping("addTeacher")
+    public R addTeacher(@RequestBody EduTeacher eduTeacher){
+        boolean save = teacherService.save(eduTeacher);
+        if(save){
+            return R.ok();
+        }else {
+            return R.error();
+        }
+    }
+
+    //6.根据讲师id进行查询
+    @GetMapping("getTeacher/{id}")
+    public R getTeacher(@PathVariable String id){
+        EduTeacher eduTeacher = teacherService.getById(id);
+        return R.ok().data("teacher",eduTeacher);
+    }
+
+    //7.讲师修改功能
+    @PostMapping("updateTeacher")
+    public R updateTeacher(@RequestBody EduTeacher eduTeacher){
+        boolean flag = teacherService.updateById(eduTeacher);
+        if(flag){
+            return R.ok();
+        }else {
+            return R.error();
+        }
     }
 }
 
