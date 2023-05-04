@@ -1,0 +1,4 @@
+guli_parent是后台代码。
+vue-admin-1010是前台代码(注：Node版本不能太高，我用的是Node11)
+前端项目可能出现的问题解决：https://github.com/PanJiaChen/vue-element-admin/issues/24
+mpdemo1010是学习mybatis-plus所写的代码。
