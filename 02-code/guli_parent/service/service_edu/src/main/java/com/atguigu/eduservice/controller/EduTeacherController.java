@@ -33,6 +33,7 @@ import java.util.Objects;
 @Api(description="讲师管理")
 @RestController
 @RequestMapping("/eduservice/teacher")
+@CrossOrigin
 public class EduTeacherController {
     //http://localhost:8001/eduservice/teacher/findAll
     //把service注入
@@ -91,7 +92,7 @@ public class EduTeacherController {
 
     //4.条件查询带分页的方法
     @PostMapping("pageTeacherCondition/{current}/{limit}")
-    public R pageTeacherCondition(@PathVariable long current, long limit, @RequestBody(required = false) TeacherQuery teacherQuery){
+    public R pageTeacherCondition(@PathVariable long current,@PathVariable long limit, @RequestBody(required = false) TeacherQuery teacherQuery){
         //创建page对象
         Page<EduTeacher> pageTeacher = new Page<>(current,limit);
         //构建条件
@@ -122,7 +123,8 @@ public class EduTeacherController {
             wrapper.le("gmt_create", end);
         }
 
-
+        //排序
+        wrapper.orderByDesc("gmt_create");
         //调用方法实现条件查询分页
         teacherService.page(pageTeacher,wrapper);
         long total = pageTeacher.getTotal();   //总记录数
