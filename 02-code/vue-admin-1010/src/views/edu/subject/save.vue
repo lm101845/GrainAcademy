@@ -22,7 +22,7 @@
           :on-error="fileUploadError"
           :disabled="importBtnDisabled"
           :limit="1"
-          :action="BASE_API+'/eduservice/edu-subject/addSubject'"
+          :action="BASE_API+'/eduservice/subject/addSubject'"
           name="file"
           accept="application/vnd.ms-excel">
           <el-button slot="trigger" size="small" type="primary">选取文件</el-button>
@@ -70,6 +70,8 @@ export default {
           message: response.message
         })
       }
+      //跳转课程分类列表(路由跳转)
+      this.$router.push({path:'/subject/list'})
     },
     //上传失败
     fileUploadError(response){
