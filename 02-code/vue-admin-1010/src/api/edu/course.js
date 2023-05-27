@@ -11,7 +11,7 @@ export default {
     return request({
       url: '/eduservice/course/addCourseInfo',
       method: 'post',
-      data:courseInfo
+      data: courseInfo
     })
   },
   //2 查询所有讲师
@@ -19,6 +19,21 @@ export default {
     return request({
       url: '/eduservice/teacher/findAll',
       method: 'get'
+    })
+  },
+  //3.根据课程id查询课程基本信息
+  getCourseInfoId(id) {
+    return request({
+      url: '/eduservice/course/getCourseInfo/' + id,
+      method: 'get'
+    })
+  },
+  //4.修改课程信息
+  updateCourseInfo(courseInfo) {
+    return request({
+      url: '/eduservice/course/updateCourseInfo',
+      method: 'post',
+      data: courseInfo
     })
   }
 }

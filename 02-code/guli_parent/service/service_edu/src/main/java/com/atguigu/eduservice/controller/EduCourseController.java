@@ -22,7 +22,7 @@ public class EduCourseController {
     @Autowired
     private EduCourseService courseService;
 
-    //添加课程基本信息
+    //1.添加课程基本信息
     @PostMapping("addCourseInfo")
     public R addCourseInfo(@RequestBody CourseInfoVo courseInfoVo){
         //返回添加之后的课程id,为了后面添加课程大纲使用
@@ -30,5 +30,18 @@ public class EduCourseController {
         return R.ok().data("courseId",id);
     }
 
+    //2.根据课程id查询课程基本信息
+    @GetMapping("getCourseInfo/{courseId}")
+    public R getCouseInfo(@PathVariable String courseId){
+        CourseInfoVo courseInfoVo = courseService.getCourseInfo(courseId);
+        return R.ok().data("courseInfoVo",courseInfoVo);
+    }
+
+    //3.修改课程信息
+    @PostMapping("updateCourseInfo")
+    public R updateCourseInfo(@RequestBody CourseInfoVo courseInfoVo){
+        courseService.updateCourseInfo(courseInfoVo);
+        return R.ok();
+    }
 }
 

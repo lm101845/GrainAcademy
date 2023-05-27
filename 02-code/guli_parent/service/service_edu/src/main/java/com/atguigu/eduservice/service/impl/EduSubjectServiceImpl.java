@@ -46,12 +46,12 @@ public class EduSubjectServiceImpl extends ServiceImpl<EduSubjectMapper, EduSubj
     public List<OneSubject> getAllOneTwoSubject() {
         //1.查询所有一级分类 parentid=0
         QueryWrapper<EduSubject> wrapperOne = new QueryWrapper<>();
-        wrapperOne.eq("parent_id",0);
+        wrapperOne.eq("parent_id","0");
         List<EduSubject> oneSubjectList = baseMapper.selectList(wrapperOne);
 
         //2.查询所有二级分类 parentid != 0
         QueryWrapper<EduSubject> wrapperTwo = new QueryWrapper<>();
-        wrapperTwo.ne("parent_id",0);   //ne表示不等于
+        wrapperTwo.ne("parent_id","0");   //ne表示不等于
         List<EduSubject> twoSubjectList = baseMapper.selectList(wrapperTwo);
 
         //创建list集合，用于存储最终封装的数据
@@ -80,12 +80,12 @@ public class EduSubjectServiceImpl extends ServiceImpl<EduSubjectMapper, EduSubj
             //创建list集合，封装每个一级分类的二级分类
             List<TwoSubject> twoFinalSubjectList = new ArrayList<>();
             //遍历二级分类list集合
-            for (int j = 0; j < twoSubjectList.size(); j++) {
+            for (int m = 0; m < twoSubjectList.size(); m++) {
                 //获取每个二级分类
-                EduSubject tSubject = twoSubjectList.get(j);
+                EduSubject tSubject = twoSubjectList.get(m);
                 //判断二级分类parentid和一级分类id是否一样
-                if(tSubject.getParentId().equals(eduSubject.getId())){
-                    //把tSubject值复制到twoSubject里面，放到twoFinalSubjectList里面
+                if(tSubject.getParentId().equals(eduSubject.getId())) {
+                    //把tSubject值复制到TwoSubject里面，放到twoFinalSubjectList里面
                     TwoSubject twoSubject = new TwoSubject();
                     BeanUtils.copyProperties(tSubject,twoSubject);
                     twoFinalSubjectList.add(twoSubject);

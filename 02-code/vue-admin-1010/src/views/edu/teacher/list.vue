@@ -82,7 +82,7 @@
       <el-table-column label="操作" width="200" align="center">
         <template slot-scope="scope">
           <!--隐藏路由-->
-          <router-link :to="'/teacher/save/'+scope.row.id">
+          <router-link :to="'/teacher/edit/'+scope.row.id">
             <el-button type="primary" size="mini" icon="el-icon-edit">修改</el-button>
           </router-link>
           <el-button type="danger" size="mini" icon="el-icon-delete" @click="removeDataById(scope.row.id)">删除</el-button>

@@ -41,7 +41,7 @@ public class EduCourse implements Serializable {
     @ApiModelProperty(value = "二级分类ID")
     private String subjectId;
 
-    @ApiModelProperty(value = "一级分类ID")
+    @ApiModelProperty(value = "一级分类级ID")
     private String subjectParentId;
 
     @ApiModelProperty(value = "课程标题")
@@ -78,6 +78,4 @@ public class EduCourse implements Serializable {
     @ApiModelProperty(value = "更新时间")
     @TableField(fill = FieldFill.INSERT_UPDATE)
     private Date gmtModified;
-
-
 }
