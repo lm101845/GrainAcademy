@@ -123,7 +123,6 @@ export default {
     }
   },
   created() {
-
     //获取路由id值
     if(this.$route.params && this.$route.params.id) {
       this.courseId = this.$route.params.id
@@ -220,6 +219,7 @@ export default {
     addCourse() {
       course.addCourseInfo(this.courseInfo)
         .then(response => {
+          console.log(response,'添加课程')
           //提示
           this.$message({
             type: 'success',
