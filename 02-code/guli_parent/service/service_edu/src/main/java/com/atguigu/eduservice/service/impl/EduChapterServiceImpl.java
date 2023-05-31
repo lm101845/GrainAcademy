@@ -29,7 +29,7 @@ import java.util.List;
 public class EduChapterServiceImpl extends ServiceImpl<EduChapterMapper, EduChapter> implements EduChapterService {
     @Autowired
     private EduVideoService videoService;   //注入小节service
-    //课程大纲列表,根据课程id进行查询
+    //1.课程大纲列表,根据课程id进行查询
     @Override
     public List<ChapterVo> getChapterVideoByCourseId(String courseId) {
         //1.根据课程id查询课程里所有的章节
@@ -77,7 +77,7 @@ public class EduChapterServiceImpl extends ServiceImpl<EduChapterMapper, EduChap
         return finalList;
     }
 
-    //删除章节的方法
+    //2.根据章节id删除章节的方法
     @Override
     public boolean deleteChapter(String chapterId) {
         //根据chapterid章节id查询小节表，如果查询到数据，不进行删除
@@ -91,5 +91,13 @@ public class EduChapterServiceImpl extends ServiceImpl<EduChapterMapper, EduChap
             int result = baseMapper.deleteById(chapterId);
             return result > 0;
         }
+    }
+
+    //3.根据章节id删除章节的方法
+    @Override
+    public void removeChapterByCourseId(String courseId) {
+        QueryWrapper<EduChapter> wrapper = new QueryWrapper<>();
+        wrapper.eq("course_id",courseId);
+        baseMapper.delete(wrapper);
     }
 }

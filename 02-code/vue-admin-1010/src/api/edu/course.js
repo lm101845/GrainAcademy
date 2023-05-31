@@ -35,5 +35,26 @@ export default {
       method: 'post',
       data: courseInfo
     })
+  },
+  //5.课程确认信息显示
+  getPublihCourseInfo(id) {
+    return request({
+      url: '/eduservice/course/getPublishCourseInfo/'+id,
+      method: 'get'
+    })
+  },
+  //6.课程最终发布
+  publihCourse(id) {
+    return request({
+      url: '/eduservice/course/publishCourse/'+id,
+      method: 'post'
+    })
+  },
+  //7.课程列表
+  getListCourse() {
+    return request({
+      url: '/eduservice/course',
+      method: 'get'
+    })
   }
 }
