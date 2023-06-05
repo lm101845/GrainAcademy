@@ -11,6 +11,10 @@ https://pan.baidu.com/s/1GfkpJqPXGX9MszHDfyTM9g?pwd=yyds 提取码：yyds
 
 nginx.exe -s stop 停用nginx
 
+启动命令：cmd startup.cmd 或者双击startup.cmd运行文件。
+访问：http://localhost:8848/nacos
+用户名密码：nacos/nacos
+
 视频时长78小时，共307集。
 http://localhost:8001/swagger-ui.html
 
@@ -34,3 +38,4 @@ http://localhost:8001/swagger-ui.html
 第131-137集看完——23-05-31
 第138-146集看完——23-06-01
 第147-151集看完——23-06-04
+第152-160集看完——23-06-05
