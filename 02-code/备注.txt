@@ -1,8 +1,9 @@
+第一套前后台代码：
 guli_parent是后台代码。
 vue-admin-1010是前台代码(注：Node版本不能太高，我用的是Node11)
-
+mpdemo1010是学习mybatis-plus所写的代码，不用管。
 
 前端项目可能出现的问题解决：https://github.com/PanJiaChen/vue-element-admin/issues/24
 
-
-mpdemo1010是学习mybatis-plus所写的代码。
+第二套前后台代码：
+vue-front-1010是nuxt框架搭建的前台代码，在p166集。

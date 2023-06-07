@@ -14,7 +14,7 @@ import java.util.List;
  * @Date 2023/6/5 16:36
  **/
 
-@FeignClient("service-vod")
+@FeignClient(name = "service-vod", fallback = VodFileDegradeFeignClient.class)  //调用的服务器名称
 @Component
 public interface VodClient {
     //1.定义调用的方法路径
