@@ -13,8 +13,11 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * @since 2023-06-14
  */
 public interface UcenterMemberService extends IService<UcenterMember> {
-    //登录的方法
+    //1.登录的方法
     String login(UcenterMember member);
-    //注册的方法
+    //2.注册的方法
     void register(RegisterVo registerVo);
+
+    //3.根据openid做查询
+    UcenterMember getOpenIdMember(String openid);
 }

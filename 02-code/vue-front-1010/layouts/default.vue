@@ -168,13 +168,14 @@ export default {
     wxLogin() {
       //console.log('************'+this.token)
       //把token值放到cookie里面
+      //domain: 'localhost'表示作用范围，cookie不能跨域
       cookie.set('guli_token',this.token,{domain: 'localhost'})
-      cookie.set('guli_ucenter','',{domain: 'localhost'})
-      //console.log('====='+cookie.get('guli_token'))
+      cookie.set('guli_ucenter','',{domain: 'localhost'})  //先设成空
+      console.log('====='+cookie.get('guli_token'))
       //调用接口，根据token值获取用户信息
       loginApi.getLoginUserInfo()
         .then(response => {
-          // console.log('################'+response.data.data.userInfo)
+          console.log('################'+response.data.data.userInfo)
           this.loginInfo = response.data.data.userInfo
           cookie.set('guli_ucenter',this.loginInfo,{domain: 'localhost'})
         })

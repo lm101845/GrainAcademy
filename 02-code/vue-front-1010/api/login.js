@@ -13,7 +13,7 @@ export default {
     })
   },
   //2.根据token获取用户信息
-  getLoginUserInfo() {
+   getLoginUserInfo() {
     return request({
       url: `/educenter/member/getMemberInfo`,
       method: 'get',
