@@ -186,7 +186,10 @@ export default {
       let userStr = cookie.get('guli_ucenter')
       // 把字符串转换json对象(js对象)
       if(userStr) {
+        console.log("进入了")
+        console.log(userStr,'userStr')
         this.loginInfo = JSON.parse(userStr)
+        console.log(this.loginInfo,'this.loginInfo')
       }
     },
 
