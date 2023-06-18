@@ -170,6 +170,7 @@ export default {
   asyncData({ params, error }) {
     return courseApi.getCourseInfo(params.id)
       .then(response => {
+        console.log(response,'getCourseInfo--response')
         return {
           courseWebVo: response.data.data.courseWebVo,
           chapterVideoList: response.data.data.chapterVideoList
