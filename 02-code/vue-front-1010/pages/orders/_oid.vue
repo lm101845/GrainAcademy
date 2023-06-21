@@ -20,11 +20,12 @@
         </tr> -->
         <tr>
           <td colspan="3" class="teacher">讲师：{{order.teacherName}}</td>
+<!--          <td colspan="3" class="teacher">讲师：老师</td>-->
         </tr>
         <tr class="good">
           <td class="name First">
             <a target="_blank" :href="'https://localhost:3000/course/'+order.courseId">
-              <img :src="order.courseCover"></a>
+              <img :src="order.courseCover" width="1600px" height="500px"></a>
             <div class="goodInfo">
               <input type="hidden" class="ids ids_14502" value="14502">
               <a target="_blank" :href="'https://localhost:3000/course/'+ order.courseId">{{order.courseTitle}}</a>

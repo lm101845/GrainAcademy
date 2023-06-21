@@ -54,7 +54,7 @@ public class UcenterMemberController {
         return R.ok().data("userInfo",member);
     }
 
-    //6.根据用户id获取用户信息
+    //4.根据用户id获取用户信息
     @PostMapping("getUserInfoOrder/{id}")
     public UcenterMemberOrder getUserInfoOrder(@PathVariable String id){
         UcenterMember member = memberService.getById(id);
@@ -62,6 +62,13 @@ public class UcenterMemberController {
         UcenterMemberOrder ucenterMemberOrder = new UcenterMemberOrder();
         BeanUtils.copyProperties(member,ucenterMemberOrder);
         return ucenterMemberOrder;
+    }
+
+    //5.查询某一天的注册人数
+    @GetMapping("countRegister/{day}")
+    public R countRegister(@PathVariable String day){
+         Integer count = memberService.countRegisterDay(day);
+         return R.ok().data("countRegister",count);
     }
 }
 
