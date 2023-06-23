@@ -16,6 +16,8 @@ E:\01-code\00-23年新建包\09-GrainAcademy\GrainAcademy\01-课程资料\项目
 访问：http://localhost:8848/nacos
 用户名密码：nacos/nacos
 
+mysql -uroot -p
+
 视频时长78小时，共307集。
 http://localhost:8001/swagger-ui.html
 
@@ -53,3 +55,4 @@ http://localhost:8160/api/ucenter/wx/login
 第231-236集看完——23-06-19——今天没心情做项目了。
 第237-245集看完——23-06-20
 第246-250集看完——23-06-21
+第251-260集看完——23-06-23   

@@ -56,6 +56,7 @@ export default {
             staApi.getDataSta(this.searchObj)
                 .then(response => {
                     console.log('*****************'+response)
+                    console.log(response)
                     this.yData = response.data.numDataList
                     this.xData = response.data.date_calculatedList
 
