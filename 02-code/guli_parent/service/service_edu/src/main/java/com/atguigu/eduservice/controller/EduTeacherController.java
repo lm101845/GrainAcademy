@@ -33,7 +33,7 @@ import java.util.Objects;
 @Api(description="讲师管理")
 @RestController
 @RequestMapping("/eduservice/teacher")
-@CrossOrigin
+//@CrossOrigin
 public class EduTeacherController {
     //http://localhost:8001/eduservice/teacher/findAll
     //把service注入

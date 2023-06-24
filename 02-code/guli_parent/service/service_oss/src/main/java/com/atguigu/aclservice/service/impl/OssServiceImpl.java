@@ -1,8 +1,8 @@
-package com.atguigu.service.impl;
+package com.atguigu.aclservice.service.impl;
 
 import com.aliyun.oss.OSS;
 import com.aliyun.oss.OSSClientBuilder;
-import com.atguigu.service.OssService;
+import com.atguigu.aclservice.service.OssService;
 import com.atguigu.utils.ConstantPropertiesUtils;
 import org.joda.time.DateTime;
 import org.springframework.stereotype.Service;
